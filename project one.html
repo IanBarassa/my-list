@@ -3,81 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Practice challenge</title>
-
-  <style>
-    body {
-      font-family: "Arial Black", sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .slide-container {
-      width: 80%;
-      max-width: 800px;
-      position: relative;
-    }
-    .slide {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      text-align: center;
-      display: none; /* Hide all slides by default */
-      position: relative;
-    }
-    .slide.active {
-      display: block; /* Show the active slide */
-    }
-    .slide h1 {
-      font-size: 32px;
-      color: #333333;
-      margin-bottom: 20px;
-    }
-    .slide ul {
-      text-align: left;
-      list-style-type: disc;
-      margin: 0 auto;
-      padding-left: 40px;
-      font-size: 18px;
-      color: #555555;
-    }
-    .slide ul li {
-      margin-bottom: 10px;
-    }
-    .slide img {
-      margin-top: 20px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .navigation {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .navigation button {
-      background-color: #007bff;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 0 10px;
-    }
-    .navigation button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  <title>Slide Deck with Navigation Buttons Inside Slides</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="slide-container">
-  <!-- Slide 1: Problem -->
+
+  <!-- Problem -->
   <div class="slide active">
     <h1>The Challenge: Inefficiencies Across Critical Business Processes</h1>
     <ul>
@@ -93,7 +25,7 @@
     </div>
   </div>
 
-  <!-- Slide 2: Solution -->
+  <!-- Solution -->
   <div class="slide">
     <h1>The Solution: Data-Driven Optimization and Integration</h1>
     <ul>
@@ -104,8 +36,8 @@
     </ul>
 
     <div class="navigation">
-      <button id="prevBtn"> Previous</button>
-      <button id="nextBtn"> Next</button>
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
     </div>
   </div>
 
@@ -126,37 +58,6 @@
   </div>
 </div>
 
-<script>
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelectorAll("#prevBtn");
-  const nextBtn = document.querySelectorAll("#nextBtn");
-  let currentSlide = 0;
-
-  // Function to show the current slide
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-  }
-
-  // Event listener for "Next" button
-  nextBtn.forEach(button => {
-    button.addEventListener("click", () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    });
-  });
-
-  // Event listener for "Previous" button
-  prevBtn.forEach(button => {
-    button.addEventListener("click", () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    });
-  });
-
-  // Show the first slide initially
-  showSlide(currentSlide);
-</script>
+<script src="project%201.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
