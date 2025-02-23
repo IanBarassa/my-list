@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice challenge</title>
+
+  <style>
+    body {
+      font-family: "Arial Black", sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slide-container {
+      width: 80%;
+      max-width: 800px;
+      position: relative;
+    }
+    .slide {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      text-align: center;
+      display: none; /* Hide all slides by default */
+      position: relative;
+    }
+    .slide.active {
+      display: block; /* Show the active slide */
+    }
+    .slide h1 {
+      font-size: 32px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    .slide ul {
+      text-align: left;
+      list-style-type: disc;
+      margin: 0 auto;
+      padding-left: 40px;
+      font-size: 18px;
+      color: #555555;
+    }
+    .slide ul li {
+      margin-bottom: 10px;
+    }
+    .slide img {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .navigation {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .navigation button {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    .navigation button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="slide-container">
+  <!-- Slide 1: Problem -->
+  <div class="slide active">
+    <h1>The Challenge: Inefficiencies Across Critical Business Processes</h1>
+    <ul>
+      <li>Disconnected processes in demand planning, procurement, and inventory management.</li>
+      <li>Undiscovered inefficiencies leading to unnecessary costs.</li>
+      <li>Lack of real-time data sharing across stages.</li>
+      <li>Limited visibility into value drivers and operational bottlenecks.</li>
+    </ul>
+
+    <div class="navigation">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+
+  <!-- Slide 2: Solution -->
+  <div class="slide">
+    <h1>The Solution: Data-Driven Optimization and Integration</h1>
+    <ul>
+      <li>Implemented advanced analytics to study critical stages of the business model.</li>
+      <li>Identified and isolated key value drivers in demand planning, procurement, and inventory management.</li>
+      <li>Scaled back or eliminated inefficiencies, achieving 5–10% savings in each process.</li>
+      <li>Integrated processes into an end-to-end system with real-time data transmission.</li>
+    </ul>
+
+    <div class="navigation">
+      <button id="prevBtn"> Previous</button>
+      <button id="nextBtn"> Next</button>
+    </div>
+  </div>
+
+  <!-- Slide 3: Results -->
+  <div class="slide">
+    <h1>The Impact: Significant Cost Savings and Operational Efficiency</h1>
+    <ul>
+      <li>Achieved 5–10% savings in individual processes.</li>
+      <li>Realized <strong>50% overall savings</strong> by integrating processes and enabling real-time data flow.</li>
+      <li>Total savings amounted to <strong>hundreds of millions of dollars</strong>.</li>
+      <li>Improved decision-making and operational agility.</li>
+    </ul>
+
+    <div class="navigation">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelectorAll("#prevBtn");
+  const nextBtn = document.querySelectorAll("#nextBtn");
+  let currentSlide = 0;
+
+  // Function to show the current slide
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  // Event listener for "Next" button
+  nextBtn.forEach(button => {
+    button.addEventListener("click", () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+  });
+
+  // Event listener for "Previous" button
+  prevBtn.forEach(button => {
+    button.addEventListener("click", () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+  });
+
+  // Show the first slide initially
+  showSlide(currentSlide);
+</script>
+</body>
+</html>
